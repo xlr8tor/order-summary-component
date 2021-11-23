@@ -1,0 +1,98 @@
+@import '_resets';
+@import '_mixins';
+@import 'components/button';
+
+body {
+    background: url('../images/pattern-background-mobile.svg') $Pale-blue no-repeat;
+    height: 100%;
+    color: $Desaturated-blue;
+
+    @include screen-sm {
+        & {
+            background: url('../images/pattern-background-desktop.svg') $Pale-blue no-repeat;
+            height: 100%;
+        }
+    }
+}
+
+a {
+    font-size: .9rem;
+    font-weight: 700;
+    color: $Bright-blue;
+
+    &:hover {
+        color: $Purple;
+        text-decoration: none;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    background-color: $White;
+    margin: 3em 1.5em;
+    border-radius: 1.2rem;
+
+    &__header {
+        width: 100%;
+        
+
+        &-hero {
+            border-radius: 1.2rem 1.2rem 0 0;
+            width: 100%;
+            vertical-align: top;
+        }
+    }
+
+    &__body {
+        text-align: center;
+        padding: 2em 1.5em;
+
+        &-header {
+            color: $Dark-blue;
+            font-weight: 900;
+        }
+
+        &-text {
+            margin-block: 1.25em;
+            line-height: 1.5;
+        }
+
+        &-music {   
+            background-color: $Very-pale-blue;
+            padding: 1em;
+            border-radius: .625rem;
+            margin-block-end: 1.5em;
+
+            .card__body-header {
+                font-size: 1rem;
+            }
+
+            @include screen-xs {
+                & {
+                    flex-direction: column;
+                }
+
+                & > *:not(:nth-child(1)) {
+                    margin-block-start: 1em;
+                }
+            }
+        }
+    }
+
+    @include screen-lg {
+
+        & {
+            max-width: 450px;
+            margin: 3em auto;
+
+            &__body {
+                padding: 2em 2.7em;
+            }
+        }
+    }
+}
